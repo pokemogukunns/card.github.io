@@ -1,0 +1,30 @@
+/* game.css */
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#card {
+    width: 100px;
+    height: 140px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+#chat-box {
+    margin: 20px auto;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+#chat-message {
+    width: 80%;
+}
