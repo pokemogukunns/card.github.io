@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲーム設定</title>
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <header>
+        <h1>ゲーム設定</h1>
+    </header>
+    <main>
+        <form id="settings-form">
+            <label for="card-design">カードデザイン:</label>
+            <select id="card-design">
+                <option value="classic">クラシック</option>
+                <option value="modern">モダン</option>
+            </select>
+            <label for="sound">サウンド:</label>
+            <input type="checkbox" id="sound" checked> 音を有効にする
+            <label for="background-music">BGM:</label>
+            <input type="checkbox" id="background-music" checked> BGMを有効にする
+            <button type="submit">保存</button>
+        </form>
+    </main>
+    <script src="js/settings.js"></script>
+</body>
+</html>
