@@ -13,6 +13,15 @@
     <main>
         <p>お探しのページは存在しないか、削除された可能性があります。</p>
         <a href="index.html">ホームページに戻る</a>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const savedBackground = localStorage.getItem('background');
+            if (savedBackground) {
+                body.style.backgroundImage = `url('${savedBackground}')`;
+            }
+        });
+    </script>
     </main>
 </body>
 </html>
