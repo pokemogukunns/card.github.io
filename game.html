@@ -18,5 +18,14 @@
     </main>
     <script src="js/main.js"></script>
     <script src="js/chat.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const savedBackground = localStorage.getItem('background');
+            if (savedBackground) {
+                body.style.backgroundImage = `url('${savedBackground}')`;
+            }
+        });
+    </script>
 </body>
 </html>
