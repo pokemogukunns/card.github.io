@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景変更</title>
+    <style>
+        body {
+            transition: background 0.5s ease;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="background-select">背景を選択:</label>
+        <select id="background-select">
+            <option value="">--選択してください--</option>
+            <option value="assets/image/アニメ/トトロ.png">トトロ</option>
+            <option value="assets/image/アニメ/崖に立つ人.png">崖に立つ人</option>
+            <option value="assets/image/アニメ/崖に立つ少女.png">崖に立つ少女</option>
+          <option value="assets/image/アニメ/都市を見る少女.png">都市を見る少女</option>
+            <option value="assets/image/アニメ/鬼滅.png">鬼滅</option>
+            <option value="assets/image/イラスト/hana.png">花🌸</option>
+          <option value="assets/image/イラスト/jyoukuu.png">雲の上</option>
+            <option value="assets/image/イラスト/kouhai.jpeg">荒廃した都市と少女</option>
+            <option value="assets/image/イラスト/kumo.png">雲</option>
+          <option value="assets/image/イラスト/kumo2.png">雲2</option>
+            <option value="assets/image/イラスト/otiba.png">落ち葉</option>
+            <option value="assets/image/イラスト/sakura.png">桜</option>
+          <option value="assets/image/イラスト/sizenn.png">自然?</option>
+            <option value="assets/image/イラスト/sunahama.png">砂浜</option>
+            <option value="assets/image/イラスト/tokai.png">都会</option>
+          <option value="assets/image/イラスト/ueheuehe.png">上へ上へ</option>
+            <option value="assets/image/イラスト/wakugumi.png">枠組み</option>
+            <option value="assets/image/イラスト/yokuaru.png">よくある背景</option>
+          <option value="assets/image/イラスト/太陽.png">太陽?</option>
+          <option value="assets/image/ゲーム/2048.png">2048</option>
+          <option value="assets/image/ゲーム/2048_3d.png">2048_3d</option>
+           <option value="assets/image/ゲーム/marika.png">マリカ</option>
+          <option value="assets/image/ゲーム/minecraft.png">マイクラ</option>
+          <option value="assets/image/ゲーム/suika_game.png">スイカゲーム</option>
+           <option value="assets/image/ゲーム/sumabura.png">スマブラ</option>
+          <option value="assets/image/ゲーム/supura.png">スプラ_背景</option>
+          <option value="assets/image/ゲーム/supura2.png">スプラ_色違い</option>
+           <option value="assets/image/ゲーム/uno.png">UNO</option>
+          <option value="assets/image/ファンタジー/fantasy?.png">灰色</option>
+          <option value="assets/image/ファンタジー/fantasy?2.png">青色</option>
+           <option value="assets/image/ファンタジー/fantasy?3_🌈.png">🌈</option>
+          <option value="assets/image/ファンタジー/gunya2.png">ぐにゃぐにゃ緑</option>
+          <option value="assets/image/ファンタジー/hosizora.png">星空</option>
+ <option value="assets/image/ファンタジー/kirei.png">立体3角</option>
+          <option value="assets/image/ファンタジー/kouhai&log.jpeg">荒廃&木</option>
+          <option value="assets/image/ファンタジー/miti.png">道</option>
+           <option value="assets/image/ファンタジー/umi?.png">海？</option>
+          <option value="assets/image/ファンタジー/宇宙.png">宇宙</option>
+          <option value="assets/image/ファンタジー/降り立つ龍.png">降り立つ龍</option>
+          <option value="assets/image/現実味/hosizora.png">星空</option>
+          <option value="assets/image/現実味/kaigann.png">海岸2</option>
+          <option value="assets/image/現実味/kana?.png">背景3</option>
+          <option value="assets/image/現実味/kana?2.png">背景4</option>
+          <option value="assets/image/現実味/kouenn.png">緑公園</option>
+          <option value="assets/image/現実味/mizuumi.png">湖</option>
+          <option value="assets/image/現実味/natu.png">夏</option>
+          <option value="assets/image/現実味/sizen.png">夕暮れ</option>
+          <option value="assets/image/現実味/umi.png">海</option>
+          <option value="assets/image/現実味/実りの富士山.png">🌾&🗻</option>
+          <option value="assets/image/現実味/桜富士.png">🌸&🗻</option>
+          <option value="assets/image/現実味/秋の富士山.png">秋の富士山</option>
+          <option value="assets/image/現実味/砂浜.png">砂浜2</option>
+          <!-- 他の選択肢もここに追加できます -->
+        </select>
+        <br><br>
+        <input type="file" id="background-upload" accept="image/*">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const selectElement = document.getElementById('background-select');
+            const fileInput = document.getElementById('background-upload');
+
+            // 背景設定の読み込み
+            const savedBackground = localStorage.getItem('background');
+            if (savedBackground) {
+                body.style.backgroundImage = `url('${savedBackground}')`;
+            }
+
+            // 背景選択のイベントリスナー
+            selectElement.addEventListener('change', function() {
+                const selectedValue = selectElement.value;
+                if (selectedValue) {
+                    body.style.backgroundImage = `url('${selectedValue}')`;
+                    localStorage.setItem('background', selectedValue);
+                }
+            });
+
+            // 背景アップロードのイベントリスナー
+            fileInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        body.style.backgroundImage = `url('${e.target.result}')`;
+                        localStorage.setItem('background', e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
